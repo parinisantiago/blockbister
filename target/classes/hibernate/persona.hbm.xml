@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="model">
+    <class name="Persona">
+        <id name="id" type="long" column="idPersona" unsaved-value="0">
+            <generator class="increment" />
+        </id>
+        
+        <property name="dni" not-null="false"/>
+        <property name="nombre" not-null="false"/>
+        <property name="telefono" not-null="false"/>
+        <property name="mail" not-null="false"/>
+        <property name="direccion" not-null="false"/>
+
+    </class>
+</hibernate-mapping>
