@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="model">
+    <class name="Renta">
+        <id name="id" type="long" column="idRenta" unsaved-value="0">
+            <generator class="increment" />
+        </id>
+        
+        <one-to-one name="persona" class="Persona" cascade="all"/>
+        <one-to-one name="catalogo" class="Catalogo" cascade="all"/>
+        <property name="alquiler"/>
+        <property name="devolucion"/>
+        <property name="ganancia"/>
+    </class>
+</hibernate-mapping>
