@@ -22,6 +22,10 @@
 		<!-- Incluir mappings aquí -->
 		<!-- <mapping resource="hibernate/clase.hbm.xml" /> -->
 		<mapping resource="hibernate/persona.hbm.xml"/>
+		<mapping resource="hibernate/pelicula.hbm.xml"/>
+		<mapping resource="hibernate/tipopelicula.hbm.xml"/>
+		<mapping resource="hibernate/catalogo.hbm.xml"/>
+		<mapping resource="hibernate/renta.hbm.xml"/>
 
 	</session-factory>
 </hibernate-configuration>
