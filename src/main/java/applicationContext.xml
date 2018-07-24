@@ -43,14 +43,8 @@
 		
 	</bean>
 	
-	<!-- Implementacion del servicio base, contiene todos los repositorios -->
-	<bean id="baseService" class="service.imp.BaseServiceImp">
-		<!-- Definido en la parte de "implementacion de repositorios" -->
-	
-	</bean>
-	
 	<!-- Implementacion de servicios -->
-	<bean class="service.imp.PersonaServiceImp" id="personaServiceTarget" parent="baseService"> </bean>
+	<bean class="service.imp.PersonaServiceImp" id="personaServiceTarget"> </bean>
 	
 	<!--  ni idea, pareciera configuracion necesaria para lograr persistencia con hibernate -->
 	<!-- Hay que hacer uno por cada "implementacion de servicio" -->
