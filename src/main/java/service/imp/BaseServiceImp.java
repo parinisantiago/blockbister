@@ -1,19 +1,19 @@
 package service.imp;
 
 import dto.DTOFactory;
-import repository.bi.PersonaRepositoryBI;
+import repository.RepositoryLocator;
 
 public class BaseServiceImp {
 
-	protected DTOFactory dtoFactory = DTOFactory.getInstance();
-	protected PersonaRepositoryBI personaRepository;
+	protected DTOFactory dtoFactory;
+	protected RepositoryLocator repositoryLocator;
 	
-	public PersonaRepositoryBI getPersonaRepository() {
-		return personaRepository;
+	public RepositoryLocator getRepositoryLocator() {
+		return repositoryLocator;
 	}
 	
-	public void setPersonaRepository(PersonaRepositoryBI personaRepository) {
-		this.personaRepository = personaRepository;
+	public void setRepositoryLocator(RepositoryLocator repositoryLocator) {
+		this.repositoryLocator = repositoryLocator;
 	}
 	
 	public DTOFactory getDtoFactory() {

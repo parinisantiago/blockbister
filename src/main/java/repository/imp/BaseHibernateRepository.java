@@ -1,5 +1,6 @@
 package repository.imp;
 
+import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import repository.bi.BaseRepositoryBI;
@@ -15,8 +16,13 @@ public class BaseHibernateRepository implements BaseRepositoryBI{
 	public void setSessionFactory(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
 	}
-
+	
+	//en caso de que no exista una sesion de hibernate, abre una
 	public Session getSession() {
-		return sessionFactory.getCurrentSession();
+		try {
+		    return sessionFactory.getCurrentSession();
+		} catch (HibernateException e) {
+		    return sessionFactory.openSession();
+		}
 	}
 }

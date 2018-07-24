@@ -4,6 +4,6 @@ import dto.PersonaDTO;
 
 public interface PersonaServiceBI {
 
-	public PersonaDTO getPersona(int dni);
+	public PersonaDTO getPersona(String dni);
 	
 }
