@@ -18,7 +18,7 @@ import com.google.gson.GsonBuilder;
 import service.ServiceLocator;
 
 @ControllerAdvice
-@RequestMapping("/services")
+@RequestMapping("/persona")
 @ResponseBody
 @EnableWebMvc
 public class PersonaController {
