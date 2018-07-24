@@ -53,7 +53,7 @@ public class PersonaController {
 		
 		try {
 			this.aMap = new HashMap<String, Object>();
-			this.aMap.put("Persona", ServiceLocator.getInstance());
+			this.aMap.put("Persona", ServiceLocator.getInstance().getPersonaService().getPersona("0"));
 			this.json =  this.getGson().toJson(this.aMap);	
 		}catch(Exception e) {
 			this.aMap = new HashMap<String, Object>();
