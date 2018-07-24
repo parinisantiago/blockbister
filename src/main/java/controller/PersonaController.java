@@ -2,6 +2,7 @@ package controller;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.NoSuchElementException;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -9,6 +10,7 @@ import org.hibernate.cfg.Configuration;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
@@ -49,12 +51,16 @@ public class PersonaController {
 	}
 	
 	@RequestMapping(value = "/persona", method = RequestMethod.GET, produces = "application/json", headers = "Accept=application/json")
-	public String pasajeros() {
+	public String persona(@RequestParam("dni") String dni) {
 		
 		try {
 			this.aMap = new HashMap<String, Object>();
-			this.aMap.put("Persona", ServiceLocator.getInstance().getPersonaService().getPersona("0"));
+			this.aMap.put("Persona", ServiceLocator.getInstance().getPersonaService().getPersona(dni));
 			this.json =  this.getGson().toJson(this.aMap);	
+		}catch(NoSuchElementException e){
+			this.aMap = new HashMap<String,Object>();
+			this.aMap.put("error", "No existe una persona registrada con ese dni");
+			return this.getGson().toJson(this.aMap);
 		}catch(Exception e) {
 			this.aMap = new HashMap<String, Object>();
 			this.aMap.put("error", e.getMessage());
@@ -63,5 +69,21 @@ public class PersonaController {
 		
 		return this.json;
 	
+	}
+	
+	@RequestMapping(value = "/nuevo", method = RequestMethod.POST, produces = "application/json", headers = "Accept=application/json")
+	public String nueva(@RequestParam("dni") String dni,@RequestParam("nombre") String nombre,@RequestParam("telefono") String telefono,@RequestParam("direccion") String direccion,@RequestParam("mail") String mail) {
+		
+		try {
+			this.aMap = new HashMap<String, Object>();
+			this.aMap.put("Persona", ServiceLocator.getInstance().getPersonaService().crearPersona(dni,nombre,telefono,direccion,mail));
+			this.json =  this.getGson().toJson(this.aMap);	
+		}catch(Exception e) {
+			this.aMap = new HashMap<String, Object>();
+			this.aMap.put("error", e.getMessage());
+			return this.getGson().toJson(this.aMap);
+		}
+		
+		return this.json;
 	}
 }
