@@ -7,11 +7,11 @@
             <generator class="increment" />
         </id>
         
-        <property name="dni" not-null="false"/>
-        <property name="nombre" not-null="false"/>
-        <property name="telefono" not-null="false"/>
-        <property name="mail" not-null="false"/>
-        <property name="direccion" not-null="false"/>
+        <property name="dni"/>
+        <property name="nombre"/>
+        <property name="telefono"/>
+        <property name="mail"/>
+        <property name="direccion"/>
 
     </class>
 </hibernate-mapping>

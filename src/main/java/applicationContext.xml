@@ -44,7 +44,7 @@
 	</bean>
 	
 	<!-- Implementacion del servicio base, contiene todos los repositorios -->
-	<bean id="baseService" class="service.BaseServiceImp">
+	<bean id="baseService" class="service.imp.BaseServiceImp">
 		<!-- Definido en la parte de "implementacion de repositorios" -->
 		<property name="personaRepository">
 			<ref bean="personaRepository" />
@@ -53,7 +53,7 @@
 	</bean>
 	
 	<!-- Implementacion de servicios -->
-	<bean class="services.impl.PersonaServiceImpl" id="personaServiceTarget" parent="baseService"> </bean>
+	<bean class="service.imp.PersonaServiceImp" id="personaServiceTarget" parent="baseService"> </bean>
 	
 	<!--  ni idea, pareciera configuracion necesaria para lograr persistencia con hibernate -->
 	<!-- Hay que hacer uno por cada "implementacion de servicio" -->
@@ -64,7 +64,7 @@
 		</property>
 		<!-- se declara con que bean de "implementacion de servicios" se mapea esto -->
 		<property name="target">
-			<ref bean="viajesServiceTarget"/>
+			<ref bean="personaServiceTarget"/>
 		</property>
 		
 		<property name="transactionAttributes">

@@ -12,7 +12,7 @@
 
 
 <!--  no se que es esto -->
-	<context:component-scan base-package="Blockbister.web" />
+	<context:component-scan base-package="controller" />
 	<context:annotation-config />
 	<mvc:annotation-driven />
 
