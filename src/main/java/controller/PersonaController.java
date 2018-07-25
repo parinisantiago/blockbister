@@ -87,4 +87,18 @@ public class PersonaController {
 		
 		return this.json;
 	}
-}
+
+	@RequestMapping(value = "/modificar", method = RequestMethod.PUT, produces = "application/json", headers = "Accept=application/json")
+	public String nueva(@RequestBody Persona persona) {
+		try {
+			this.aMap = new HashMap<String, Object>();
+			this.aMap.put("Persona", ServiceLocator.getInstance().getPersonaService().modificarPersona(persona));
+			this.json =  this.getGson().toJson(this.aMap);	
+		}catch(Exception e) {
+			this.aMap = new HashMap<String, Object>();
+			this.aMap.put("error", e.getMessage());
+			return this.getGson().toJson(this.aMap);
+		}
+		
+		return this.json;
+	}}
