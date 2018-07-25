@@ -9,12 +9,12 @@
 	</property>
 <property name="mappingResources">
 	<list>
-		<value>hibernate/blockbister.hbm.xml</value>
-		<value>hibernate/catalogo.hbm.xml</value>
-		<value>hibernate/pelicula.hbm.xml</value>
-		<value>hibernate/persona.hbm.xml</value>
-		<value>hibernate/renta.hbm.xml</value>
-		<value>hibernate/tipopelicula.hbm.xml</value>
+		<value>hibernate/Blockbister.hbm.xml</value>
+		<value>hibernate/Catalogo.hbm.xml</value>
+		<value>hibernate/Pelicula.hbm.xml</value>
+		<value>hibernate/Persona.hbm.xml</value>
+		<value>hibernate/Renta.hbm.xml</value>
+		<value>hibernate/TipoPelicula.hbm.xml</value>
 	</list>
 </property>
 
