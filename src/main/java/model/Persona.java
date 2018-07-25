@@ -65,5 +65,11 @@ public class Persona {
 	public void setDireccion(String direccion) {
 		this.direccion = direccion;
 	}
-	
+	public void modificar(String persona){
+		this.nombe = persona.getNombre();
+		this.mail = persona.getMail();
+		this.telefono = persona.getTelefono();
+		this.direccion = persona.getDireccion();
+		this.dni = persona.getDni();
+	}
 }
