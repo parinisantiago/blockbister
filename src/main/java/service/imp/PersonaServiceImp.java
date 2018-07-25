@@ -18,4 +18,8 @@ public class PersonaServiceImp implements PersonaServiceBI{
 		return DTOFactory.getInstance().getPersonaDTO(RepositoryLocator.getInstance().getPersonaRepository().crearPersona(persona));		
 	}
 	
+	public PersonaDTO modificarPersona(Persona persona){
+		return DTOFactory.getInstance().getPersonaDTO(RepositoryLocator.getInstance().getPersonaRepository().modificarPersona(persona));
+	}
+
 }
