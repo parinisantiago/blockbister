@@ -6,6 +6,7 @@ import repository.bi.PersonaRepositoryBI;
 
 public class HibernatePersonaRepository extends BaseHibernateRepository implements PersonaRepositoryBI{
 
+	@Override
 	public Persona getPersona(String dni) {
 		Persona persona = (Persona) this.getSession().createQuery("FROM Persona P WHERE P.dni="+dni).list().iterator().next();
 		return persona;
@@ -16,6 +17,12 @@ public class HibernatePersonaRepository extends BaseHibernateRepository implemen
 		Blockbister blockbister = (Blockbister) this.getSession().createQuery("FROM Blockbister").list().iterator().next();
 		blockbister.addPersona(persona);
 		return persona;
+	}
+
+	@Override
+	public Persona modificarPersona(Persona persona){
+		Persona persona = (Persona) this.getSession().createQuery("FROM Persona P WHERE P.dni="+persona.getDni()).list().iterator().next();
+		persona.modificar(persona);
 	}
 
 }
