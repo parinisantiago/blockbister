@@ -4,7 +4,7 @@ import model.Persona;
 
 public interface PersonaRepositoryBI extends BaseRepositoryBI {
 
-	Persona getPersona(String dni);
-	Persona crearPersona(Persona persona);
-	
+	public Persona getPersona(String dni);
+	public Persona crearPersona(Persona persona);
+	public Persona modificarPersona(Persona persona);
 }
