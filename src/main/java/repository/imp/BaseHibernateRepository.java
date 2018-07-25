@@ -19,7 +19,6 @@ public class BaseHibernateRepository implements BaseRepositoryBI{
 	
 	//en caso de que no exista una sesion de hibernate, abre una
 	public Session getSession() {
-		 Session session = sessionFactory.getCurrentSession();
-		 return session;
+		 return sessionFactory.getCurrentSession();
 	}
 }
