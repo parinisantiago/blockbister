@@ -8,6 +8,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -17,6 +18,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import model.Persona;
 import service.ServiceLocator;
 
 @ControllerAdvice
@@ -72,11 +74,10 @@ public class PersonaController {
 	}
 	
 	@RequestMapping(value = "/nuevo", method = RequestMethod.POST, produces = "application/json", headers = "Accept=application/json")
-	public String nueva(@RequestParam("dni") String dni,@RequestParam("nombre") String nombre,@RequestParam("telefono") String telefono,@RequestParam("direccion") String direccion,@RequestParam("mail") String mail) {
-		
+	public String nueva(@RequestBody Persona persona) {
 		try {
 			this.aMap = new HashMap<String, Object>();
-			this.aMap.put("Persona", ServiceLocator.getInstance().getPersonaService().crearPersona(dni,nombre,telefono,direccion,mail));
+			this.aMap.put("Persona", ServiceLocator.getInstance().getPersonaService().crearPersona(persona));
 			this.json =  this.getGson().toJson(this.aMap);	
 		}catch(Exception e) {
 			this.aMap = new HashMap<String, Object>();
