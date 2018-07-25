@@ -69,4 +69,7 @@ public class Blockbister {
 		this.rentas = rentas;
 	}
 	
+	public void addPersona(Persona persona) {
+		this.personas.add(persona);
+	}
 }
