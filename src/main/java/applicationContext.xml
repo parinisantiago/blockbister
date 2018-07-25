@@ -13,7 +13,7 @@
 	<!-- agrega los beans de hibernate y dataSource -->
 	<import resource="classpath:dataSource.xml" />
     <import resource="classpath:hibernate.cfg.xml" />
-    
+    <tx:annotation-driven transaction-manager="transactionManager"/>
 	<!-- sesiones de hibernate -->
 	<bean id="transactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
 		<property name="sessionFactory">
@@ -21,14 +21,20 @@
 		</property>
 	</bean>
 	
+
+	
 	<!-- Para obtener el application context -->
 	<bean id="contextApplicationContextProvider" class="util.BlockbisterContextProvider"></bean>
 	
 	<!-- Imprementacion de repositorios -->
-	<bean id="personaRepository" class="repository.imp.HibernatePersonaRepository">
+	
+	<bean id="baseRepository" class="repository.imp.BaseHibernateRepository">		
 		<property name="sessionFactory">
 			<ref bean="sessionFactory" />
 		</property>
+	</bean>
+	
+	<bean id="personaRepository" class="repository.imp.HibernatePersonaRepository" parent="baseRepository">
 	</bean>
 	
 	<!-- DTO Factory -->
