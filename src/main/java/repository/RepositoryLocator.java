@@ -1,11 +1,13 @@
 package repository;
 
+import repository.bi.BlockbisterRepositoryBI;
 import repository.bi.PersonaRepositoryBI;
 
 public class RepositoryLocator {
 	
 	private static RepositoryLocator instance = null;
 	private PersonaRepositoryBI personaRepository;
+	private BlockbisterRepositoryBI blockbisterRepository;
 	
 	public static RepositoryLocator getInstance(){
 		if(instance == null){
@@ -20,6 +22,14 @@ public class RepositoryLocator {
 
 	public void setPersonaRepository(PersonaRepositoryBI personaRepository) {
 		this.personaRepository = personaRepository;
+	}
+
+	public BlockbisterRepositoryBI getBlockbisterRepository() {
+		return blockbisterRepository;
+	}
+
+	public void setBlockbisterRepository(BlockbisterRepositoryBI blockbisterRepository) {
+		this.blockbisterRepository = blockbisterRepository;
 	}
 	
 	
