@@ -1,5 +1,6 @@
 package dto;
 
+import model.Blockbister;
 import model.Persona;
 
 public class DTOFactory {
@@ -17,4 +18,8 @@ public class DTOFactory {
 		return new PersonaDTO(persona);
 	}
 	
+	public BlockbisterDTO getBlockbisterDTO(Blockbister blockbister)
+	{
+		return new BlockbisterDTO(blockbister);
+	}
 }
