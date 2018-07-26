@@ -1,5 +1,7 @@
 package service.imp;
 
+import java.util.Collection;
+
 import org.springframework.transaction.annotation.Transactional;
 
 import dto.DTOFactory;
@@ -20,6 +22,10 @@ public class PersonaServiceImp implements PersonaServiceBI{
 	
 	public PersonaDTO modificarPersona(Persona persona){
 		return DTOFactory.getInstance().getPersonaDTO(RepositoryLocator.getInstance().getPersonaRepository().modificarPersona(persona));
+	}
+	
+	public Collection<PersonaDTO> getPersonas(){
+		return DTOFactory.getInstance().getBlockbisterDTO(RepositoryLocator.getInstance().getBlockbisterRepository().getBlockbister()).getPersonas();
 	}
 
 }
