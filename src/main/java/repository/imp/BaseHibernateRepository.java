@@ -1,6 +1,5 @@
 package repository.imp;
 
-import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import repository.bi.BaseRepositoryBI;
