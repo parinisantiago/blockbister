@@ -37,6 +37,9 @@
 	<bean id="personaRepository" class="repository.imp.HibernatePersonaRepository" parent="baseRepository">
 	</bean>
 	
+	<bean id="blockbisterRepository" class="repository.imp.HibernateBlockbisterRepository" parent="baseRepository">
+	</bean>	
+	
 	<!-- DTO Factory -->
 	<bean class="dto.DTOFactory" id="dtoFactory"> </bean>
 	
@@ -46,7 +49,9 @@
 		<property name="personaRepository">
 			<ref bean="personaRepository" />
 		</property>
-		
+		<property name="blockbisterRepository">
+			<ref bean="blockbisterRepository" />
+		</property>
 	</bean>
 	
 	<!-- Implementacion de servicios -->
