@@ -1,5 +1,6 @@
 package repository.imp;
 
+
 import model.Blockbister;
 import model.Persona;
 import repository.bi.PersonaRepositoryBI;
@@ -20,9 +21,10 @@ public class HibernatePersonaRepository extends BaseHibernateRepository implemen
 	}
 
 	@Override
-	public Persona modificarPersona(Persona persona){
-		Persona persona = (Persona) this.getSession().createQuery("FROM Persona P WHERE P.dni="+persona.getDni()).list().iterator().next();
-		persona.modificar(persona);
+	public Persona modificarPersona(Persona personaJSON){
+		Persona persona = (Persona) this.getSession().createQuery("FROM Persona P WHERE P.dni="+personaJSON.getDni()).list().iterator().next();
+		persona.modificar(personaJSON);
+		return persona;
 	}
 
 }
