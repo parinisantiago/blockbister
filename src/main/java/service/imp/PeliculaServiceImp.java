@@ -15,18 +15,19 @@ public class PeliculaServiceImp implements PeliculaServiceBI{
 
 	@Override
 	public PeliculaDTO getPelicula(String titulo) {
-		return null;
+		return DTOFactory.getInstance().getPeliculaDTO(RepositoryLocator.getInstance().getPeliculaRepository().getPelicula(titulo));
 	}
 
 	@Override
 	public PeliculaDTO crearPelicula(Pelicula pelicula) {
-		return DTOFactory.getInstance().getPeliculaDTO(RepositoryLocator.getInstance().getPeliculaRepository().crearPelicula(pelicula));
+		PeliculaDTO peliculaDTO = DTOFactory.getInstance().getPeliculaDTO(RepositoryLocator.getInstance().getPeliculaRepository().crearPelicula(pelicula));
+		RepositoryLocator.getInstance().getCatalogoRepository().crearCatalogo(pelicula);
+		return peliculaDTO;
 	}
 
 	@Override
 	public PeliculaDTO modificarPelicula(Pelicula pelicula) {
-		// TODO Auto-generated method stub
-		return null;
+		return DTOFactory.getInstance().getPeliculaDTO(RepositoryLocator.getInstance().getPeliculaRepository().modificarPelicula(pelicula));
 	}
 
 	@Override
