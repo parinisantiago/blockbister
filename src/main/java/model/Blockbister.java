@@ -72,4 +72,8 @@ public class Blockbister {
 	public void addPersona(Persona persona) {
 		this.personas.add(persona);
 	}
+
+	public void addPelicula(Pelicula pelicula) {
+		this.peliculas.add(pelicula);
+	}
 }
