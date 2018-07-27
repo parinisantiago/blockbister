@@ -76,4 +76,8 @@ public class Blockbister {
 	public void addPelicula(Pelicula pelicula) {
 		this.peliculas.add(pelicula);
 	}
+
+	public void addCatalogo(Catalogo catalogo) {
+		this.catalogos.add(catalogo);
+	}
 }
