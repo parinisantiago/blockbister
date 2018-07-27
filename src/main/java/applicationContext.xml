@@ -43,6 +43,9 @@
 	<bean id="peliculaRepository" class="repository.imp.HibernatePeliculaRepository" parent="baseRepository">
 	</bean>	
 	
+	<bean id="catalogoRepository" class="repository.imp.HibernateCatalogoRepository" parent="baseRepository">
+	</bean>	
+	
 	<!-- DTO Factory -->
 	<bean class="dto.DTOFactory" id="dtoFactory"> </bean>
 	
@@ -58,11 +61,15 @@
 		<property name="peliculaRepository">
 			<ref bean="peliculaRepository" />
 		</property>
+				<property name="catalogoRepository">
+			<ref bean="catalogoRepository" />
+		</property>
 	</bean>
 	
 	<!-- Implementacion de servicios -->
 	<bean class="service.imp.PersonaServiceImp" id="personaServiceTarget"> </bean>
 	<bean class="service.imp.PeliculaServiceImp" id="peliculaServiceTarget"> </bean>
+	<bean class="service.imp.CatalogoServiceImp" id="catalogoServiceTarget"> </bean>
 
 	<!--  ni idea, pareciera configuracion necesaria para lograr persistencia con hibernate -->
 	<!-- Hay que hacer uno por cada "implementacion de servicio" -->
@@ -99,6 +106,22 @@
 		</property>
 		
 	</bean>
+		<bean class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean" id="catalogoService">
+		
+		<property name="transactionManager">
+			<ref bean="transactionManager"/>
+		</property>
+		<property name="target">
+			<ref bean="catalogoServiceTarget"/>
+		</property>
+		
+		<property name="transactionAttributes">
+			<props>
+				<prop key="*">PROPAGATION_REQUIRED</prop>
+			</props>
+		</property>
+		
+	</bean>
 	<!-- Factory de service -->
 	<bean class="service.ServiceLocator" id="serviceLocator" factory-method="getInstance">
 		<!-- aca se mapea los servicios de "impementacion de servicios" -->
@@ -107,6 +130,9 @@
 		</property>
 		<property name="peliculaService">
 			<ref bean="peliculaServiceTarget"/>
+		</property>
+		<property name="catalogoService">
+			<ref bean="catalogoServiceTarget"/>
 		</property>
 	</bean>
 	
