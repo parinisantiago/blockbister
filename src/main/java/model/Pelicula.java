@@ -50,5 +50,12 @@ public class Pelicula {
 	public void setId(long id) {
 		this.id = id;
 	}
+
+	public void modificar(Pelicula pelicula) {
+		this.id = pelicula.getId();
+		this.titulo = pelicula.getTitulo();
+		this.sinopsis = pelicula.getSinopsis();
+		this.estreno = pelicula.getEstreno();
+	}
 	
 }
