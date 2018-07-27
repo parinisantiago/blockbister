@@ -15,6 +15,10 @@ public class Pelicula {
 		this.sinopsis = sinopsis;
 		this.estreno = estreno;
 	}
+	
+	public Pelicula() {
+		super();
+	}
 
 	public String getTitulo() {
 		return titulo;
