@@ -4,9 +4,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.NoSuchElementException;
 
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,7 +13,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 
 import model.Persona;
 import service.ServiceLocator;
@@ -25,25 +21,7 @@ import service.ServiceLocator;
 @RequestMapping("/persona")
 @ResponseBody
 @EnableWebMvc
-public class PersonaController {
-	
-	private Map<String, Object> aMap = new HashMap<String, Object>();
-	private String json;
-	
-	protected Session getSession() {
-		Configuration cfg = new Configuration();
-		cfg.configure();
-		SessionFactory factory = cfg.buildSessionFactory();
-		Session session = factory.openSession();
-		return session;
-	}
-
-	private Gson getGson(){
-		 final GsonBuilder builder = new GsonBuilder();
-		 builder.excludeFieldsWithoutExposeAnnotation();
-		 final Gson gson = builder.create();
-		 return gson;
-	}
+public class PersonaController extends Controller{
 	
 	@RequestMapping(value = "/example", method = RequestMethod.GET, produces = "application/json", headers = "Accept=application/json")
 	public String prueba() {
