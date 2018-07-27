@@ -1,6 +1,7 @@
 package repository;
 
 import repository.bi.BlockbisterRepositoryBI;
+import repository.bi.CatalogoRepositoryBI;
 import repository.bi.PeliculaRepositoryBI;
 import repository.bi.PersonaRepositoryBI;
 
@@ -10,6 +11,7 @@ public class RepositoryLocator {
 	private PersonaRepositoryBI personaRepository;
 	private BlockbisterRepositoryBI blockbisterRepository;
 	private PeliculaRepositoryBI peliculaRepository;
+	private CatalogoRepositoryBI catalogoRepository;
 	
 	public static RepositoryLocator getInstance(){
 		if(instance == null){
@@ -40,6 +42,14 @@ public class RepositoryLocator {
 
 	public void setPeliculaRepository(PeliculaRepositoryBI peliculaRepository) {
 		this.peliculaRepository = peliculaRepository;
+	}
+
+	public CatalogoRepositoryBI getCatalogoRepository() {
+		return catalogoRepository;
+	}
+
+	public void setCatalogoRepository(CatalogoRepositoryBI catalogoRepository) {
+		this.catalogoRepository = catalogoRepository;
 	}
 	
 	
