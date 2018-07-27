@@ -8,8 +8,8 @@ public class HibernatePeliculaRepository extends BaseHibernateRepository impleme
 
 	@Override
 	public Pelicula getPelicula(String titulo) {
-		// TODO Auto-generated method stub
-		return null;
+		Pelicula pelicula = (Pelicula) this.getSession().createQuery("FROM Pelicula P WHERE P.titulo="+titulo).list().iterator().next();
+		return pelicula;
 	}
 
 	@Override
@@ -20,9 +20,10 @@ public class HibernatePeliculaRepository extends BaseHibernateRepository impleme
 	}
 
 	@Override
-	public Pelicula modificarPelicula(Pelicula pelicula) {
-		// TODO Auto-generated method stub
-		return null;
+	public Pelicula modificarPelicula(Pelicula peliculaJSON) {
+		Pelicula pelicula = (Pelicula) this.getSession().createQuery("FROM Persona P WHERE P.id="+peliculaJSON.getId()).list().iterator().next();
+		pelicula.modificar(peliculaJSON);
+		return pelicula;
 	}
 
 }
