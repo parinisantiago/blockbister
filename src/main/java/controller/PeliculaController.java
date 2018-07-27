@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
@@ -32,7 +33,7 @@ public class PeliculaController extends Controller{
 	public String nuevo(@RequestBody Pelicula pelicula) {
 		try {
 			this.aMap = new HashMap<String, Object>();
-			this.aMap.put("Persona", ServiceLocator.getInstance().getPeliculaService().crearPelicula(pelicula));
+			this.aMap.put("Pelicula", ServiceLocator.getInstance().getPeliculaService().crearPelicula(pelicula));
 			this.json =  this.getGson().toJson(this.aMap);	
 		}catch(Exception e) {
 			this.aMap = new HashMap<String, Object>();
@@ -47,7 +48,37 @@ public class PeliculaController extends Controller{
 	public String peliculas() {
 		try {
 			this.aMap = new HashMap<String, Object>();
-			this.aMap.put("Personas", ServiceLocator.getInstance().getPeliculaService().getPeliculas());
+			this.aMap.put("Peliculas", ServiceLocator.getInstance().getPeliculaService().getPeliculas());
+			this.json =  this.getGson().toJson(this.aMap);	
+		}catch(Exception e) {
+			this.aMap = new HashMap<String, Object>();
+			this.aMap.put("error", e.getMessage());
+			return this.getGson().toJson(this.aMap);
+		}
+		
+		return this.json;
+	}
+	
+	@RequestMapping(value = "/pelicula", method = RequestMethod.GET, produces = "application/json", headers = "Accept=application/json")
+	public String pelicula(@RequestParam("titulo") String titulo) {
+		try {
+			this.aMap = new HashMap<String, Object>();
+			this.aMap.put("Pelicula", ServiceLocator.getInstance().getPeliculaService().getPelicula(titulo));
+			this.json =  this.getGson().toJson(this.aMap);	
+		}catch(Exception e) {
+			this.aMap = new HashMap<String, Object>();
+			this.aMap.put("error", e.getMessage());
+			return this.getGson().toJson(this.aMap);
+		}
+		
+		return this.json;
+	}
+	
+	@RequestMapping(value = "/modificar", method = RequestMethod.PUT, produces = "application/json", headers = "Accept=application/json")
+	public String pelicula(@RequestBody Pelicula pelicula) {
+		try {
+			this.aMap = new HashMap<String, Object>();
+			this.aMap.put("Pelicula", ServiceLocator.getInstance().getPeliculaService().modificarPelicula(pelicula));
 			this.json =  this.getGson().toJson(this.aMap);	
 		}catch(Exception e) {
 			this.aMap = new HashMap<String, Object>();
