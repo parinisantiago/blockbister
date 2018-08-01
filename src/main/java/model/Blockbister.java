@@ -80,4 +80,8 @@ public class Blockbister {
 	public void addCatalogo(Catalogo catalogo) {
 		this.catalogos.add(catalogo);
 	}
+
+	public void addRenta(Renta renta) {
+		this.rentas.add(renta);
+	}
 }
