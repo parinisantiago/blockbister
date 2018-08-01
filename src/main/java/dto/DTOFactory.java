@@ -4,6 +4,7 @@ import model.Blockbister;
 import model.Catalogo;
 import model.Pelicula;
 import model.Persona;
+import model.Renta;
 
 public class DTOFactory {
 
@@ -33,5 +34,10 @@ public class DTOFactory {
 	public CatalogoDTO getCatalagoDTO(Catalogo catalogo)
 	{
 		return new CatalogoDTO(catalogo);
+	}
+	
+	public RentaDTO getRentaDTO(Renta renta)
+	{
+		return new RentaDTO(renta);
 	}
 }
