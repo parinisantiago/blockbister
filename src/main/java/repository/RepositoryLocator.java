@@ -5,6 +5,7 @@ import repository.bi.CatalogoRepositoryBI;
 import repository.bi.PeliculaRepositoryBI;
 import repository.bi.PersonaRepositoryBI;
 import repository.bi.RentaRepositoryBI;
+import repository.bi.TipoPeliculaRepositoryBI;
 
 public class RepositoryLocator {
 	
@@ -14,6 +15,7 @@ public class RepositoryLocator {
 	private PeliculaRepositoryBI peliculaRepository;
 	private CatalogoRepositoryBI catalogoRepository;
 	private RentaRepositoryBI rentaRepository;
+	private TipoPeliculaRepositoryBI tipoPeliculaRepository;
 	
 	public static RepositoryLocator getInstance(){
 		if(instance == null){
@@ -61,6 +63,13 @@ public class RepositoryLocator {
 	public void setRentaRepository(RentaRepositoryBI rentaRepository) {
 		this.rentaRepository = rentaRepository;
 	}
-	
+
+	public TipoPeliculaRepositoryBI getTipoPeliculaRepository() {
+		return tipoPeliculaRepository;
+	}
+
+	public void setTipoPeliculaRepository(TipoPeliculaRepositoryBI tipoPeliculaRepository) {
+		this.tipoPeliculaRepository = tipoPeliculaRepository;
+	}
 	
 }
