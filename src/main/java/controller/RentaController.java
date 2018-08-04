@@ -63,6 +63,7 @@ public class RentaController extends Controller{
 			return this.getGson().toJson(this.aMap);
 		}
 		
+		return this.json;
 	}
 	
 }
