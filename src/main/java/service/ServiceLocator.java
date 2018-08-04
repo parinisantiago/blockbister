@@ -4,6 +4,7 @@ import service.bi.CatalogoServiceBI;
 import service.bi.PeliculaServiceBI;
 import service.bi.PersonaServiceBI;
 import service.bi.RentaServiceBI;
+import service.bi.TipoPeliculaServiceBI;
 
 public class ServiceLocator {
 
@@ -12,6 +13,7 @@ public class ServiceLocator {
 	private PeliculaServiceBI peliculaService;
 	private CatalogoServiceBI catalogoService;
 	private RentaServiceBI rentaService;
+	private TipoPeliculaServiceBI tipoPeliculaService;
 	
 	public static ServiceLocator getInstance(){
 		if(instance == null){
@@ -50,6 +52,14 @@ public class ServiceLocator {
 
 	public void setRentaService(RentaServiceBI rentaService) {
 		this.rentaService = rentaService;
+	}
+
+	public TipoPeliculaServiceBI getTipoPeliculaService() {
+		return this.tipoPeliculaService;
+	}
+
+	public void setTipoPeliculaService(TipoPeliculaServiceBI tipoPeliculaService) {
+		this.tipoPeliculaService = tipoPeliculaService;
 	}
 	
 }
