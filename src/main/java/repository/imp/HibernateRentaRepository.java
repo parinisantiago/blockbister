@@ -4,7 +4,7 @@ import model.Blockbister;
 import model.Renta;
 import repository.bi.RentaRepositoryBI;
 
-public class RentaHibernateRepository  extends BaseHibernateRepository implements RentaRepositoryBI{
+public class HibernateRentaRepository  extends BaseHibernateRepository implements RentaRepositoryBI{
 
 	@Override
 	public Renta getRenta(String id) {
