@@ -84,4 +84,8 @@ public class Blockbister {
 	public void addRenta(Renta renta) {
 		this.rentas.add(renta);
 	}
+
+	public void addTipoPelicula(TipoPelicula tipoPelicula) {
+		this.tipospelicula.add(tipoPelicula);
+	}
 }
