@@ -5,6 +5,7 @@ import model.Catalogo;
 import model.Pelicula;
 import model.Persona;
 import model.Renta;
+import model.TipoPelicula;
 
 public class DTOFactory {
 
@@ -39,5 +40,9 @@ public class DTOFactory {
 	public RentaDTO getRentaDTO(Renta renta)
 	{
 		return new RentaDTO(renta);
+	}
+	public TipoPeliculaDTO getTipoPeliculaDTO(TipoPelicula tipoPelicula)
+	{
+		return new TipoPeliculaDTO(tipoPelicula);
 	}
 }
