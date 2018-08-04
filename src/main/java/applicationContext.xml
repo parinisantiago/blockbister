@@ -46,6 +46,12 @@
 	<bean id="catalogoRepository" class="repository.imp.HibernateCatalogoRepository" parent="baseRepository">
 	</bean>	
 	
+	<bean id="rentaRepository" class="repository.imp.HibernateRentaRepository" parent="baseRepository">
+	</bean>	
+	
+	<bean id="tipoPeliculaRepository" class="repository.imp.HibernateTipoPeliculaRepository" parent="baseRepository">
+	</bean>	
+	
 	<!-- DTO Factory -->
 	<bean class="dto.DTOFactory" id="dtoFactory"> </bean>
 	
@@ -61,8 +67,14 @@
 		<property name="peliculaRepository">
 			<ref bean="peliculaRepository" />
 		</property>
-				<property name="catalogoRepository">
+		<property name="catalogoRepository">
 			<ref bean="catalogoRepository" />
+		</property>
+		<property name="rentaRepository">
+			<ref bean="rentaRepository" />
+		</property>
+		<property name="tipoPeliculaRepository">
+			<ref bean="tipoPeliculaRepository" />
 		</property>
 	</bean>
 	
@@ -70,6 +82,8 @@
 	<bean class="service.imp.PersonaServiceImp" id="personaServiceTarget"> </bean>
 	<bean class="service.imp.PeliculaServiceImp" id="peliculaServiceTarget"> </bean>
 	<bean class="service.imp.CatalogoServiceImp" id="catalogoServiceTarget"> </bean>
+	<bean class="service.imp.RentaServiceImp" id="rentaServiceTarget"> </bean>
+	<bean class="service.imp.TipoPeliculaServiceImp" id="tipoPeliculaServiceTarget"> </bean>
 
 	<!--  ni idea, pareciera configuracion necesaria para lograr persistencia con hibernate -->
 	<!-- Hay que hacer uno por cada "implementacion de servicio" -->
@@ -106,7 +120,7 @@
 		</property>
 		
 	</bean>
-		<bean class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean" id="catalogoService">
+	<bean class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean" id="catalogoService">
 		
 		<property name="transactionManager">
 			<ref bean="transactionManager"/>
@@ -122,6 +136,39 @@
 		</property>
 		
 	</bean>
+	<bean class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean" id="rentaService">
+		
+		<property name="transactionManager">
+			<ref bean="transactionManager"/>
+		</property>
+		<property name="target">
+			<ref bean="rentaServiceTarget"/>
+		</property>
+		
+		<property name="transactionAttributes">
+			<props>
+				<prop key="*">PROPAGATION_REQUIRED</prop>
+			</props>
+		</property>
+		
+	</bean>
+	<bean class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean" id="tipoPeliculaService">
+		
+		<property name="transactionManager">
+			<ref bean="transactionManager"/>
+		</property>
+		<property name="target">
+			<ref bean="tipoPeliculaServiceTarget"/>
+		</property>
+		
+		<property name="transactionAttributes">
+			<props>
+				<prop key="*">PROPAGATION_REQUIRED</prop>
+			</props>
+		</property>
+		
+	</bean>
+	
 	<!-- Factory de service -->
 	<bean class="service.ServiceLocator" id="serviceLocator" factory-method="getInstance">
 		<!-- aca se mapea los servicios de "impementacion de servicios" -->
@@ -133,6 +180,12 @@
 		</property>
 		<property name="catalogoService">
 			<ref bean="catalogoServiceTarget"/>
+		</property>
+		<property name="rentaService">
+			<ref bean="rentaServiceTarget"/>
+		</property>
+		<property name="tipoPeliculaService">
+			<ref bean="tipoPeliculaServiceTarget"/>
 		</property>
 	</bean>
 	
