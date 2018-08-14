@@ -1,11 +1,13 @@
 package service.imp;
 
+import org.springframework.transaction.annotation.Transactional;
 import dto.DTOFactory;
 import dto.TipoPeliculaDTO;
 import model.TipoPelicula;
 import repository.RepositoryLocator;
 import service.bi.TipoPeliculaServiceBI;
 
+@Transactional
 public class TipoPeliculaServiceImp implements TipoPeliculaServiceBI{
 
 	@Override
