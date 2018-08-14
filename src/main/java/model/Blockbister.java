@@ -2,6 +2,7 @@ package model;
 
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.Iterator;
 
 public class Blockbister {
 
@@ -69,11 +70,16 @@ public class Blockbister {
 		this.rentas = rentas;
 	}
 	
-	public void addPersona(Persona persona) {
+	public void addPersona(Persona persona) throws Exception {
+		
+		if (this.personas.stream().filter(x -> x.getDni() == persona.getDni()).findAny().isPresent()) throw new Exception("Ya existe una persona registrada con ese dni");
+		
 		this.personas.add(persona);
 	}
 
-	public void addPelicula(Pelicula pelicula) {
+	public void addPelicula(Pelicula pelicula) throws Exception {
+		if (this.peliculas.stream().filter(x -> x.getTitulo() == pelicula.getTitulo()).findAny().isPresent()) throw new Exception("Ya existe una pelicula registrada con ese titulo");
+
 		this.peliculas.add(pelicula);
 	}
 
@@ -87,5 +93,15 @@ public class Blockbister {
 
 	public void addTipoPelicula(TipoPelicula tipoPelicula) {
 		this.tipospelicula.add(tipoPelicula);
+		Iterator<Pelicula> peliculaIterator = this.peliculas.iterator();
+		while(peliculaIterator.hasNext()) 
+		{
+			this.catalogos.add(new Catalogo(peliculaIterator.next(),tipoPelicula,0));
+		}
+	}
+
+	public void removePersona(Persona persona) {
+		this.personas.remove(persona);
+		
 	}
 }
