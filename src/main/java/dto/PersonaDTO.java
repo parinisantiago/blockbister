@@ -11,7 +11,7 @@ public class PersonaDTO {
 	@Expose
 	private String nombre;
 	@Expose
-	private int telefono;
+	private Long telefono;
 	@Expose
 	private String mail;
 	@Expose
@@ -51,11 +51,11 @@ public class PersonaDTO {
 		this.nombre = nombre;
 	}
 	
-	public int getTelefono() {
+	public Long getTelefono() {
 		return telefono;
 	}
 	
-	public void setTelefono(int telefono) {
+	public void setTelefono(Long telefono) {
 		this.telefono = telefono;
 	}
 	
