@@ -13,7 +13,7 @@ public class HibernatePeliculaRepository extends BaseHibernateRepository impleme
 	}
 
 	@Override
-	public Pelicula crearPelicula(Pelicula pelicula) {
+	public Pelicula crearPelicula(Pelicula pelicula) throws Exception {
 		Blockbister blockbister = (Blockbister) this.getSession().createQuery("FROM Blockbister").list().iterator().next();
 		blockbister.addPelicula(pelicula);
 		return pelicula;
