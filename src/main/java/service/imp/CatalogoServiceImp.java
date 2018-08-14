@@ -10,7 +10,6 @@ public class CatalogoServiceImp implements CatalogoServiceBI{
 
 	@Override
 	public CatalogoDTO modificarCatalogo(Catalogo catalogo) {
-		// TODO Auto-generated method stub
 		return DTOFactory.getInstance().getCatalagoDTO(RepositoryLocator.getInstance().getCatalogoRepository().modificarCatalogo(catalogo));
 	}
 
