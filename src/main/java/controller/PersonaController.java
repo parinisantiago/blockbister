@@ -71,7 +71,11 @@ public class PersonaController extends Controller{
 		try {
 			this.aMap = new HashMap<String, Object>();
 			this.aMap.put("Persona", ServiceLocator.getInstance().getPersonaService().modificarPersona(persona));
-			this.json =  this.getGson().toJson(this.aMap);	
+			this.json =  this.getGson().toJson(this.aMap);
+		}catch(NoSuchElementException e){
+			this.aMap = new HashMap<String,Object>();
+			this.aMap.put("error", "No existe una persona registrada con ese dni");
+			return this.getGson().toJson(this.aMap);
 		}catch(Exception e) {
 			this.aMap = new HashMap<String, Object>();
 			this.aMap.put("error", e.getMessage());
@@ -95,4 +99,20 @@ public class PersonaController extends Controller{
 		
 		return this.json;
 	}
+	
+	@RequestMapping(value = "/borrar", method = RequestMethod.DELETE, produces = "application/json", headers = "Accept=application/json")
+	public String borrar(@RequestBody Persona persona) {
+		try {
+			this.aMap = new HashMap<String, Object>();
+			this.aMap.put("Personas", ServiceLocator.getInstance().getPersonaService().borrarPersona(persona.getDni()));
+			this.json =  this.getGson().toJson(this.aMap);	
+		}catch(Exception e) {
+			this.aMap = new HashMap<String, Object>();
+			this.aMap.put("error", e.getMessage());
+			return this.getGson().toJson(this.aMap);
+		}
+		
+		return this.json;
+	}
+	
 }
