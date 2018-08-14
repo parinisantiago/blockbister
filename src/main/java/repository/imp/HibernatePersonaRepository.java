@@ -14,7 +14,7 @@ public class HibernatePersonaRepository extends BaseHibernateRepository implemen
 	}
 
 	@Override
-	public Persona crearPersona(Persona persona) {
+	public Persona crearPersona(Persona persona) throws Exception {
 		Blockbister blockbister = (Blockbister) this.getSession().createQuery("FROM Blockbister").list().iterator().next();
 		blockbister.addPersona(persona);
 		return persona;
@@ -27,4 +27,12 @@ public class HibernatePersonaRepository extends BaseHibernateRepository implemen
 		return persona;
 	}
 
+	@Override
+	public Persona borrarPersona(int dni) {
+		Persona persona = (Persona) this.getSession().createQuery("FROM Persona P WHERE P.dni="+dni).list().iterator().next();
+		Blockbister blockbister = (Blockbister) this.getSession().createQuery("FROM Blockbister").list().iterator().next();
+		blockbister.removePersona(persona);
+		return persona;
+	}
+	
 }
