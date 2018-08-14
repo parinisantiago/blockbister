@@ -19,7 +19,7 @@ public class PeliculaServiceImp implements PeliculaServiceBI{
 	}
 
 	@Override
-	public PeliculaDTO crearPelicula(Pelicula pelicula) {
+	public PeliculaDTO crearPelicula(Pelicula pelicula) throws Exception {
 		PeliculaDTO peliculaDTO = DTOFactory.getInstance().getPeliculaDTO(RepositoryLocator.getInstance().getPeliculaRepository().crearPelicula(pelicula));
 		RepositoryLocator.getInstance().getCatalogoRepository().crearCatalogo(pelicula);
 		return peliculaDTO;
