@@ -10,13 +10,13 @@ public class Persona {
 	
 	private String nombre;
 	
-	private int telefono;
+	private Long telefono;
 	
 	private String mail;
 	
 	private String direccion;
 	
-	public Persona(int dni, String nombre, int telefono, String mail, String direccion) {
+	public Persona(int dni, String nombre, Long telefono, String mail, String direccion) {
 		super();
 		this.dni = dni;
 		this.nombre = nombre;
@@ -53,10 +53,10 @@ public class Persona {
 	public void setMail(String mail) {
 		this.mail = mail;
 	}
-	public int getTelefono() {
+	public Long getTelefono() {
 		return telefono;
 	}
-	public void setTelefono(int telefono) {
+	public void setTelefono(Long telefono) {
 		this.telefono = telefono;
 	}
 	public String getDireccion() {
