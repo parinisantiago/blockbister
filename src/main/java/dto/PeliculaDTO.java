@@ -8,6 +8,7 @@ import model.Pelicula;
 
 public class PeliculaDTO {
 	
+	@Expose
 	private long id;
 	@Expose
 	private String titulo;

@@ -14,7 +14,7 @@ public class HibernateCatalogoRepository extends BaseHibernateRepository impleme
 	@SuppressWarnings("unchecked")
 	@Override
 	public void crearCatalogo(Pelicula pelicula) {
-		Iterator<TipoPelicula> tipoPeliculas = this.getSession().createQuery("FROM TipoPersona").list().iterator();
+		Iterator<TipoPelicula> tipoPeliculas = this.getSession().createQuery("FROM TipoPelicula").list().iterator();
 		Blockbister blockbister = (Blockbister) this.getSession().createQuery("FROM Blockbister").list().iterator().next();
 		while(tipoPeliculas.hasNext()) {
 			TipoPelicula tipoPelicula = tipoPeliculas.next();
@@ -24,7 +24,7 @@ public class HibernateCatalogoRepository extends BaseHibernateRepository impleme
 	}
 	
 	public Catalogo modificarCatalogo(Catalogo catalogoJSON) {
-		Catalogo catalogo = (Catalogo) this.getSession().createQuery("FROM Persona P WHERE P.id="+catalogoJSON.getId()).list().iterator().next();
+		Catalogo catalogo = (Catalogo) this.getSession().createQuery("FROM Catalogo WHERE P.id="+catalogoJSON.getId()).list().iterator().next();
 		catalogo.setCantidad(catalogoJSON.getCantidad());
 		return catalogo;
 	}

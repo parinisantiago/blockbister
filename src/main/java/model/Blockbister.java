@@ -104,4 +104,8 @@ public class Blockbister {
 		this.personas.remove(persona);
 		
 	}
+
+	public void removePelicula(Pelicula pelicula) {
+		this.peliculas.remove(pelicula);
+	}
 }

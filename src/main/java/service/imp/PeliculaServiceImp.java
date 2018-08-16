@@ -35,4 +35,9 @@ public class PeliculaServiceImp implements PeliculaServiceBI{
 		return DTOFactory.getInstance().getBlockbisterDTO(RepositoryLocator.getInstance().getBlockbisterRepository().getBlockbister()).getPeliculas();
 	}
 
+	@Override
+	public PeliculaDTO borrarPelicula(long id) {
+		return DTOFactory.getInstance().getPeliculaDTO(RepositoryLocator.getInstance().getPeliculaRepository().borrarPelicula(id));
+	}
+
 }
