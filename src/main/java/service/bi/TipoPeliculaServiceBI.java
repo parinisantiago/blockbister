@@ -7,5 +7,6 @@ public interface TipoPeliculaServiceBI {
 
 	TipoPeliculaDTO getTipoPelicula(String id);
 	TipoPeliculaDTO nuevo(TipoPelicula tipoPelicula);
+	TipoPeliculaDTO borrarPelicula(long id);
 
 }
