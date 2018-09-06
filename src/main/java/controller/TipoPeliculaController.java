@@ -66,4 +66,18 @@ public class TipoPeliculaController extends Controller{
 		return this.json;
 	}
 	
+	@RequestMapping(value = "/borrar", method = RequestMethod.DELETE, produces = "application/json", headers = "Accept=application/json")
+	public String borrar(@RequestBody TipoPelicula tipoPelicula) {
+		try {
+			this.aMap = new HashMap<String, Object>();
+			this.aMap.put("TipoPelicula", ServiceLocator.getInstance().getTipoPeliculaService().borrarPelicula(tipoPelicula.getId()));
+			this.json =  this.getGson().toJson(this.aMap);	
+		}catch(Exception e) {
+			this.aMap = new HashMap<String, Object>();
+			this.aMap.put("error", e.getMessage());
+			return this.getGson().toJson(this.aMap);
+		}
+		
+		return this.json;
+	}
 }
