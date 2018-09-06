@@ -50,12 +50,12 @@ public class RentaController extends Controller{
 		return this.json;
 	}
 	
-	@RequestMapping(value = "/rentar", method = RequestMethod.POST, produces = "application/json", headers = "Accept=application/json")
+	@RequestMapping(value = "/rentar", method = RequestMethod.PUT, produces = "application/json", headers = "Accept=application/json")
 	public String rentar(@RequestBody Renta renta) {
 		
 		try {
 			this.aMap = new HashMap<String, Object>();
-			this.aMap.put("Renta", ServiceLocator.getInstance().getRentaService().nuevo(renta));
+			this.aMap.put("Renta", ServiceLocator.getInstance().getRentaService().rentar(renta));
 			this.json =  this.getGson().toJson(this.aMap);	
 		}catch(Exception e) {
 			this.aMap = new HashMap<String, Object>();
@@ -66,4 +66,35 @@ public class RentaController extends Controller{
 		return this.json;
 	}
 	
+	@RequestMapping(value = "/devolver", method = RequestMethod.PUT, produces = "application/json", headers = "Accept=application/json")
+	public String devolver(@RequestBody Renta renta) {
+		
+		try {
+			this.aMap = new HashMap<String, Object>();
+			this.aMap.put("Renta", ServiceLocator.getInstance().getRentaService().devolver(renta.getId()));
+			this.json =  this.getGson().toJson(this.aMap);	
+		}catch(Exception e) {
+			this.aMap = new HashMap<String, Object>();
+			this.aMap.put("error", e.getMessage());
+			return this.getGson().toJson(this.aMap);
+		}
+		
+		return this.json;
+	}
+	
+	@RequestMapping(value = "/cancelar", method = RequestMethod.PUT, produces = "application/json", headers = "Accept=application/json")
+	public String cancelar(@RequestBody Renta renta) {
+		
+		try {
+			this.aMap = new HashMap<String, Object>();
+			this.aMap.put("Renta", ServiceLocator.getInstance().getRentaService().cancelar(renta.getId()));
+			this.json =  this.getGson().toJson(this.aMap);	
+		}catch(Exception e) {
+			this.aMap = new HashMap<String, Object>();
+			this.aMap.put("error", e.getMessage());
+			return this.getGson().toJson(this.aMap);
+		}
+		
+		return this.json;
+	}
 }
