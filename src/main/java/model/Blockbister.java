@@ -108,4 +108,12 @@ public class Blockbister {
 	public void removePelicula(Pelicula pelicula) {
 		this.peliculas.remove(pelicula);
 	}
+
+	public void removeTipoPelicula(TipoPelicula tipoPelicula) {
+		this.tipospelicula.remove(tipoPelicula);
+	}
+
+	public void removeRenta(Renta renta) {
+		this.rentas.remove(renta);
+	}
 }
