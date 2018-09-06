@@ -19,4 +19,12 @@ public class HibernateTipoPeliculaRepository extends BaseHibernateRepository imp
 		return tipoPelicula;
 	}
 
+	@Override
+	public TipoPelicula borrarTipoPelicula(long id) {
+		TipoPelicula tipoPelicula = (TipoPelicula)this.getSession().createQuery("FROM TipoPelicula P WHERE P.id="+id).list().iterator().next();
+		Blockbister blockbister = (Blockbister) this.getSession().createQuery("FROM Blockbister").list().iterator().next();
+		blockbister.removeTipoPelicula(tipoPelicula);
+		return tipoPelicula;
+	}
+
 }
