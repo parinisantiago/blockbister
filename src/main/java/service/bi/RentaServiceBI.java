@@ -7,6 +7,7 @@ public interface RentaServiceBI {
 
 	public RentaDTO getRenta(String id);
 	public RentaDTO rentar(Renta renta);
-	public RentaDTO nuevo(Renta renta);
+	public RentaDTO devolver(long id);
+	public RentaDTO cancelar(long id);
 	
 }
