@@ -22,10 +22,14 @@ public class RentaServiceImp implements RentaServiceBI{
 	}
 
 	@Override
-	public RentaDTO nuevo(Renta renta) {
-		return null;
+	public RentaDTO devolver(long id) {
+		return DTOFactory.getInstance().getRentaDTO(RepositoryLocator.getInstance().getRentaRepository().devolver(id));
 	}
 
-	
+	@Override
+	public RentaDTO cancelar(long id) {
+		return DTOFactory.getInstance().getRentaDTO(RepositoryLocator.getInstance().getRentaRepository().cancelar(id));
+	}
+
 	
 }
