@@ -14,6 +14,10 @@ public class Catalogo {
 		this.cantidad = cantidad;
 	}
 	
+	public Catalogo(){
+		super();
+	}
+	
 	public long getId() {
 		return id;
 	}

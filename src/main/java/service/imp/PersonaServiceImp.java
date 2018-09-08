@@ -14,7 +14,7 @@ import service.bi.PersonaServiceBI;
 public class PersonaServiceImp implements PersonaServiceBI{
 	
 	@Override
-	public PersonaDTO getPersona(String dni) {
+	public PersonaDTO getPersona(String dni) throws Exception {
 		return DTOFactory.getInstance().getPersonaDTO(RepositoryLocator.getInstance().getPersonaRepository().getPersona(dni));		
 	}
 	

@@ -3,7 +3,7 @@
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping package="model">
     <class name="Catalogo">
-        <id name="id" type="long" column="idCatalogo" unsaved-value="0">
+        <id name="id" type="long" column="id" unsaved-value="0">
             <generator class="increment" />
         </id>
         

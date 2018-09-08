@@ -12,7 +12,7 @@ import service.bi.RentaServiceBI;
 public class RentaServiceImp implements RentaServiceBI{
 
 	@Override
-	public RentaDTO getRenta(String id) {
+	public RentaDTO getRenta(String id) throws Exception {
 		return DTOFactory.getInstance().getRentaDTO(RepositoryLocator.getInstance().getRentaRepository().getRenta(id));
 	}
 

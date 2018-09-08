@@ -6,7 +6,7 @@ import dto.PeliculaDTO;
 import model.Pelicula;
 
 public interface PeliculaServiceBI {
-	public PeliculaDTO getPelicula(String titulo);
+	public PeliculaDTO getPelicula(String id) throws Exception;
 	public PeliculaDTO crearPelicula(Pelicula pelicula) throws Exception;
 	public PeliculaDTO modificarPelicula(Pelicula pelicula);
 	public Collection<PeliculaDTO> getPeliculas();

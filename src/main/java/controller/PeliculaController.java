@@ -60,10 +60,10 @@ public class PeliculaController extends Controller{
 	}
 	
 	@RequestMapping(value = "/pelicula", method = RequestMethod.GET, produces = "application/json", headers = "Accept=application/json")
-	public String pelicula(@RequestParam("titulo") String titulo) {
+	public String pelicula(@RequestParam("id") String id) {
 		try {
 			this.aMap = new HashMap<String, Object>();
-			this.aMap.put("Pelicula", ServiceLocator.getInstance().getPeliculaService().getPelicula(titulo));
+			this.aMap.put("Pelicula", ServiceLocator.getInstance().getPeliculaService().getPelicula(id));
 			this.json =  this.getGson().toJson(this.aMap);	
 		}catch(Exception e) {
 			this.aMap = new HashMap<String, Object>();

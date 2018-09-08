@@ -11,7 +11,7 @@ import service.bi.TipoPeliculaServiceBI;
 public class TipoPeliculaServiceImp implements TipoPeliculaServiceBI{
 
 	@Override
-	public TipoPeliculaDTO getTipoPelicula(String id) {
+	public TipoPeliculaDTO getTipoPelicula(String id) throws Exception {
 		return DTOFactory.getInstance().getTipoPeliculaDTO(RepositoryLocator.getInstance().getTipoPeliculaRepository().getTipoPelicula(id));
 	}
 
