@@ -11,7 +11,7 @@
 
 
 
-<!--  no se que es esto -->
+<!--  paquetes de api rest -->
 	<context:component-scan base-package="controller" />
 	<context:annotation-config />
 	<mvc:annotation-driven />

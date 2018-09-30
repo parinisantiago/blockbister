@@ -24,7 +24,7 @@ public class HibernateCatalogoRepository extends BaseHibernateRepository impleme
 	}
 	
 	public Catalogo modificarCatalogo(Catalogo catalogoJSON) {
-		Catalogo catalogo = (Catalogo) this.getSession().createQuery("FROM Catalogo WHERE P.id="+catalogoJSON.getId()).list().iterator().next();
+		Catalogo catalogo = (Catalogo) this.getSession().createQuery("FROM Catalogo C WHERE C.id="+catalogoJSON.getId()).list().iterator().next();
 		catalogo.setCantidad(catalogoJSON.getCantidad());
 		return catalogo;
 	}

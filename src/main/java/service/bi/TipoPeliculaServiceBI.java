@@ -5,7 +5,7 @@ import model.TipoPelicula;
 
 public interface TipoPeliculaServiceBI {
 
-	TipoPeliculaDTO getTipoPelicula(String id);
+	TipoPeliculaDTO getTipoPelicula(String id) throws Exception;
 	TipoPeliculaDTO nuevo(TipoPelicula tipoPelicula);
 	TipoPeliculaDTO borrarPelicula(long id);
 

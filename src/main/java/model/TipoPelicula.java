@@ -11,6 +11,10 @@ public class TipoPelicula {
 		this.tipo = tipo;
 		this.precio = precio;
 	}
+	
+	public TipoPelicula(){
+		super();
+	}
 
 	public long getId() {
 		return id;

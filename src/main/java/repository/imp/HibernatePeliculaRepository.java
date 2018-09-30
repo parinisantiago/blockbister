@@ -1,15 +1,24 @@
 package repository.imp;
 
+import java.util.Iterator;
+
 import model.Blockbister;
 import model.Pelicula;
 import repository.bi.PeliculaRepositoryBI;
 
 public class HibernatePeliculaRepository extends BaseHibernateRepository implements PeliculaRepositoryBI{
 
+	@SuppressWarnings("unchecked")
 	@Override
-	public Pelicula getPelicula(String titulo) {
-		Pelicula pelicula = (Pelicula) this.getSession().createQuery("FROM Pelicula P WHERE (P.titulo="+titulo+") and (P.peliculas is not null)").list().iterator().next();
-		return pelicula;
+	public Pelicula getPelicula(String id) throws Exception {
+		
+		Iterator<Pelicula> pelicula = this.getSession().createQuery("SELECT bp FROM Blockbister B INNER JOIN B.peliculas bp WHERE bp.id ="+id).list().iterator();
+		if (!pelicula.hasNext()) throw new Exception("No existe la peli");
+		else{
+			return pelicula.next();
+		}
+			
+		
 	}
 
 	@Override

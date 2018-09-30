@@ -14,8 +14,8 @@ import service.bi.PeliculaServiceBI;
 public class PeliculaServiceImp implements PeliculaServiceBI{
 
 	@Override
-	public PeliculaDTO getPelicula(String titulo) {
-		return DTOFactory.getInstance().getPeliculaDTO(RepositoryLocator.getInstance().getPeliculaRepository().getPelicula(titulo));
+	public PeliculaDTO getPelicula(String id) throws Exception {
+		return DTOFactory.getInstance().getPeliculaDTO(RepositoryLocator.getInstance().getPeliculaRepository().getPelicula(id));
 	}
 
 	@Override
