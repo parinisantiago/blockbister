@@ -7,8 +7,8 @@
             <generator class="increment" />
         </id>
         
-        <one-to-one name="tipoPelicula" class="TipoPelicula" cascade="all"/>
-        <one-to-one name="pelicula" class="Pelicula" cascade="all"/>
+        <many-to-one name="tipoPelicula" class="TipoPelicula" cascade="all"/>
+        <many-to-one name="pelicula" class="Pelicula" cascade="all"/>
 	    <property name="cantidad"/>
 	
     </class>
