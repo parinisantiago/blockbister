@@ -33,4 +33,11 @@ public class HibernateTipoPeliculaRepository extends BaseHibernateRepository imp
 		return tipoPelicula;
 	}
 
+	@Override
+	public TipoPelicula modificar(TipoPelicula tipoPeliculaJSON) {
+		TipoPelicula tipoPelicula = (TipoPelicula) this.getSession().createQuery("FROM TipoPelicula P WHERE P.id="+tipoPeliculaJSON.getId()).list().iterator().next();
+		tipoPelicula.modificar(tipoPeliculaJSON);
+		return tipoPelicula;
+	}
+
 }

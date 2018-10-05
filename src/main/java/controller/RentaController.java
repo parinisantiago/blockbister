@@ -50,7 +50,7 @@ public class RentaController extends Controller{
 		return this.json;
 	}
 	
-	@RequestMapping(value = "/rentar", method = RequestMethod.PUT, produces = "application/json", headers = "Accept=application/json")
+	@RequestMapping(value = "/rentar", method = RequestMethod.POST, produces = "application/json", headers = "Accept=application/json")
 	public String rentar(@RequestBody Renta renta) {
 		
 		try {

@@ -25,4 +25,9 @@ public class TipoPeliculaServiceImp implements TipoPeliculaServiceBI{
 		return DTOFactory.getInstance().getTipoPeliculaDTO(RepositoryLocator.getInstance().getTipoPeliculaRepository().borrarTipoPelicula(id));
 	}
 
+	@Override
+	public TipoPeliculaDTO modificar(TipoPelicula tipoPelicula) {
+		return DTOFactory.getInstance().getTipoPeliculaDTO(RepositoryLocator.getInstance().getTipoPeliculaRepository().modificar(tipoPelicula));
+	}
+
 }

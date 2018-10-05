@@ -4,6 +4,8 @@ import java.util.Date;
 import java.util.Iterator;
 
 import model.Blockbister;
+import model.Catalogo;
+import model.Persona;
 import model.Renta;
 import repository.bi.RentaRepositoryBI;
 
@@ -23,6 +25,10 @@ public class HibernateRentaRepository  extends BaseHibernateRepository implement
 	@Override
 	public Renta rentar(Renta renta) {
 		Blockbister blockbister = (Blockbister) this.getSession().createQuery("FROM Blockbister B").list().iterator().next();
+		Persona persona = (Persona) this.getSession().createQuery("FROM Persona P WHERE P.dni="+renta.getPersona().getDni()).list().iterator().next();
+		Catalogo catalogo = (Catalogo) this.getSession().createQuery("FROM Catalogo C WHERE C.id="+renta.getCatalogo().getId()).list().iterator().next();
+		renta.setCatalogo(catalogo);
+		renta.setPersona(persona);
 		blockbister.addRenta(renta);
 		return renta;
 	}

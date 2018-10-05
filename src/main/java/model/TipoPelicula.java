@@ -40,4 +40,9 @@ public class TipoPelicula {
 		this.precio = precio;
 	}
 
+	public void modificar(TipoPelicula tipoPeliculaJSON) {
+		this.tipo = tipoPeliculaJSON.getTipo();
+		this.precio = tipoPeliculaJSON.getPrecio();
+	}
+
 }

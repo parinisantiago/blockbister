@@ -80,4 +80,20 @@ public class TipoPeliculaController extends Controller{
 		
 		return this.json;
 	}
+	
+	@RequestMapping(value = "/modificar", method = RequestMethod.PUT, produces = "application/json", headers = "Accept=application/json")
+	public String modificar(@RequestBody TipoPelicula tipoPelicula) {
+		
+		try {
+			this.aMap = new HashMap<String, Object>();
+			this.aMap.put("TipoPelicula", ServiceLocator.getInstance().getTipoPeliculaService().modificar(tipoPelicula));
+			this.json =  this.getGson().toJson(this.aMap);	
+		}catch(Exception e) {
+			this.aMap = new HashMap<String, Object>();
+			this.aMap.put("error", e.getMessage());
+			return this.getGson().toJson(this.aMap);
+		}
+		
+		return this.json;
+	}
 }

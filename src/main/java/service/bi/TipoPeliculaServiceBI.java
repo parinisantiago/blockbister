@@ -8,5 +8,6 @@ public interface TipoPeliculaServiceBI {
 	TipoPeliculaDTO getTipoPelicula(String id) throws Exception;
 	TipoPeliculaDTO nuevo(TipoPelicula tipoPelicula);
 	TipoPeliculaDTO borrarPelicula(long id);
+	TipoPeliculaDTO modificar(TipoPelicula tipoPelicula);
 
 }
