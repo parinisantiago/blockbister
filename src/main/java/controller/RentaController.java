@@ -82,7 +82,7 @@ public class RentaController extends Controller{
 		return this.json;
 	}
 	
-	@RequestMapping(value = "/cancelar", method = RequestMethod.PUT, produces = "application/json", headers = "Accept=application/json")
+	@RequestMapping(value = "/cancelar", method = RequestMethod.DELETE, produces = "application/json", headers = "Accept=application/json")
 	public String cancelar(@RequestBody Renta renta) {
 		
 		try {

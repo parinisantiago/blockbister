@@ -35,14 +35,14 @@ public class HibernateRentaRepository  extends BaseHibernateRepository implement
 
 	@Override
 	public Renta devolver(long id) {
-		Renta renta = (Renta) this.getSession().createQuery("FROM Renta R WHERE R.idRenta = " + id).list().iterator().next();
+		Renta renta = (Renta) this.getSession().createQuery("FROM Renta R WHERE R.id = " + id).list().iterator().next();
 		renta.setDevolucion(new Date());
 		return renta;
 	}
 
 	@Override
 	public Renta cancelar(long id) {
-		Renta renta = (Renta) this.getSession().createQuery("FROM Renta R WHERE R.idRenta = " + id).list().iterator().next();
+		Renta renta = (Renta) this.getSession().createQuery("FROM Renta R WHERE R.id = " + id).list().iterator().next();
 		Blockbister blockbister = (Blockbister) this.getSession().createQuery("FROM Blockbister B").list().iterator().next();
 		blockbister.removeRenta(renta);
 		return renta;
